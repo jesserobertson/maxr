@@ -6,6 +6,8 @@
     description: Integration of particle paths in chaotic flows
 """
 
+from __future__ import print_function, division
+
 from .parameters import Parameters
 
 def Stepper(object):
@@ -15,9 +17,11 @@ def Stepper(object):
         Parameters: 
             flow - a function which, when given (x, t), returns a 
                 velocity vector u.  
+            parameters - an instance of maxr.Parameters which contains
+                the parameters for the integration.
     """
 
-    def __init__(self, flow):
+    def __init__(self, flow, parameters):
         super(Stepper, self).__init__()
         self.flow = flow
 
