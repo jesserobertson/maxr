@@ -14,6 +14,8 @@ def Stepper(object):
 
     """ The class which does the integration!
 
+        We use the scheme from Daitsche (2013; http://arxiv.org/pdf/1210.2576.pdf) which is third-order accurate in the timestep
+
         Parameters: 
             flow - a function which, when given (x, t), returns a 
                 velocity vector u.  
@@ -27,8 +29,6 @@ def Stepper(object):
 
     def r_next(self, r, w, v, order=1):
         """ Get the next particle position r, given the current location, the velocity difference w and the fluid velocity v.
-
-            We use the scheme from Daitsche (2013; http://arxiv.org/pdf/1210.2576.pdf) which is third-order accurate in the timestep
 
             Parameters:
                 r - the current position of the particle
