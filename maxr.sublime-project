@@ -4,7 +4,7 @@
 		{
 			"path": ".",
 			"name": "Project files",
-			"folder_exclude_patterns": ["maxr", "tests", "logs", "build", "docs", "__pycache__", "examples", "dist", "*.egg-info"],
+			"folder_exclude_patterns": ["maxr", "tests", "logs", "build", "docs", "__pycache__", "examples", ".ipynb_checkpoints", "dist", "*.egg-info"],
 			"file_exclude_patterns": ["*.sublime-workspace", ".coverage"]
 		},
 		{
