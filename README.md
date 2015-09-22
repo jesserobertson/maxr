@@ -13,7 +13,7 @@ and
 
 ![$$ \frac{dr}{dt} = w + u $$](http://mathurl.com/nqeyj8e.png)
 
-where ![$r$](http://mathurl.com/375ggas) is the particle location, $w$ is the difference between the particle velocity $v$ and the fluid velocity $u$, $G(t)$ is the 'velocity term' (the part of the Maxey-Riley equation corresponding to the instantaneous effects of the local fluid flow), and $H(t)$ is the 'history term'. The velocity term is given by
+where ![$r$](http://mathurl.com/375ggas.png) is the particle location, ![$w$](http://mathurl.com/3yl9y2x.png) is the difference between the particle velocity ![$v$](http://mathurl.com/36zvquj.png) and the fluid velocity ![$u$](http://mathurl.com/26qs3uq.png), ![$G(t)$](http://mathurl.com/pouonnk.png) is the 'velocity term' (the part of the Maxey-Riley equation corresponding to the instantaneous effects of the local fluid flow), and ![$H(t)$](http://mathurl.com/pmtz5sa.png) is the 'history term'. The velocity term is given by
 
 ![$$ G(t) = (R - 1)\frac{du}{dt} - Rw\cdot\nabla u - \frac{R}{S}w $$](http://mathurl.com/nnc8vhn.png)
 
