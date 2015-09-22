@@ -1,0 +1,57 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"name": "Project files",
+			"folder_exclude_patterns": ["maxr", "tests", "logs", "build", "docs", "examples", "dist", "*.egg-info"],
+			"file_exclude_patterns": ["*.sublime-workspace", ".coverage"]
+		},
+		{
+			"path": "maxr",
+			"name": "Source",
+			"folder_exclude_patterns": [],
+			"file_exclude_patterns": ["*.o"]
+		},
+		{
+			"path": "tests",
+			"name": "Tests",
+			"folder_exclude_patterns": [".ipynb_checkpoints"],
+			"file_exclude_patterns": []
+		},
+		{
+			"path": "docs",
+			"name": "Documentation",
+			"folder_exclude_patterns": [".git", ".dSYM", ".static", ".templates"],
+			"file_exclude_patterns": ["*.sublime-workspace"]
+		},
+		{
+			"path": "logs",
+			"name": "Log files",
+			"folder_exclude_patterns": [],
+			"file_exclude_patterns": []
+		}
+	],
+	"settings":
+	{
+		"tab_size": 4
+	},
+	"build_systems":
+	[
+		{
+			"name": "Production build",
+			"cmd": ["python", "setup.py", "develop"],
+			"working_dir": "$project_path"
+		},
+		{
+			"name": "Install",
+			"cmd": ["python", "setup.py", "develop"],
+			"working_dir": "$project_path"
+		},
+		{
+			"name": "Run test suite",
+			"cmd": ["python", "setup.py", "test"],
+			"working_dir": "$project_path"
+		}
+	]
+}

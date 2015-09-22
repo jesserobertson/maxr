@@ -2,3 +2,4 @@
 __pycache__
 *.egg*
 _version.py
+*.sublime-workspace
