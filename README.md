@@ -21,4 +21,4 @@ and the history term by
 
 ![$$ H(t) = -R\sqrt{\frac{3}{\pi S}}\int_{0}^{t+\delta t}\frac{w(\tau)}{\sqrt{t - \tau}}d\tau $$](http://mathurl.com/pcox2xa.png)
 
-and ![$R=3\rho_f/(\rho_f + 2\rho_p)$](http://mathurl.com/q3dkzm3) is a density ratio, and ![$S=a^2/3\nu T$](http://mathurl.com/qjbnj34) is the relaxation timescale.
+and ![$R=3\rho_f/(\rho_f + 2\rho_p)$](http://mathurl.com/q3dkzm3.png) is a density ratio, and ![$S=a^2/3\nu T$](http://mathurl.com/qjbnj34.png) is the relaxation timescale.
