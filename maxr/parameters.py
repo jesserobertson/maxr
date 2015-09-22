@@ -12,7 +12,13 @@ class Parameters(dict):
 
     """ Manages parameters for integration of the Maxey-Riley equations
 
-        To see what parameters you can change, check out Parameters.keys(). All keys can be set as 
+        To see what parameters you can change, check out 
+        `Parameters.allowed_keys. All keys can be set as attributes as well, 
+        and most have short values (e.g. `Parameters.a` and 
+        `Parameters.particle_radius` point to the same thing). Dimensionless
+        values are automatically calculated, but can also be set if required.
+
+        For default values, see `Parameters.default_parameters`.
     """
 
     default_parameters = dict(
