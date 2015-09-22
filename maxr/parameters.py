@@ -37,7 +37,7 @@ class Parameters(dict):
 
     # Define symbols for quick reference
     equivalent = [
-        ('h', 'timestep'),
+        ('dt', 'timestep'),
         ('N', 'n_steps'),
         ('R', 'density_parameter'),
         ('S', 'relaxation_parameter'),
@@ -46,8 +46,7 @@ class Parameters(dict):
         ('a', 'particle_radius'),
         ('rhof', 'fluid_density'),
         ('nuf', 'fluid_viscosity'),
-        ('rhop', 'particle_density'),
-        ('a', 'particle_radius')
+        ('rhop', 'particle_density')
     ]
     _keys = []
 

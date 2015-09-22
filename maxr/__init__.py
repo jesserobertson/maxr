@@ -1,4 +1,4 @@
-from . import parameters, stepper
+from . import integrator
 from .parameters import Parameters
 
-__all__ = ['parameters', 'stepper', 'Parameters']
+__all__ = ['integrator', 'Parameters']
