@@ -6,21 +6,61 @@
     description: Integration of particle paths in chaotic flows
 """
 
-def r_next(r, w, v, order=1):
-    """ Get the next particle position r, given the current location, the velocity difference w and the fluid velocity v.
+from .parameters import Parameters
 
-        We use the scheme from Daitsche (2013; http://arxiv.org/pdf/1210.2576.pdf) which is third-order accurate in the timestep
+def Stepper(object):
 
-        Parameters:
-            r - the current position of the particle
-            w - the current velocity mismatch of the particle
-            v - the current velocity of the fluid flow at r
+    """ The class which does the integration!
 
-        Returns:
-            the new position for the particle
+        Parameters: 
+            flow - a function which, when given (x, t), returns a 
+                velocity vector u.  
     """
-    pass
 
-def w_next(r, v, order=1)
-    """ Get the next particle velocity difference, w, given the current location, the velocity of the fluid flow at 
-    """
+    def __init__(self, flow):
+        super(Stepper, self).__init__()
+        self.flow = flow
+
+    def r_next(self, r, w, v, order=1):
+        """ Get the next particle position r, given the current location, the velocity difference w and the fluid velocity v.
+
+            We use the scheme from Daitsche (2013; http://arxiv.org/pdf/1210.2576.pdf) which is third-order accurate in the timestep
+
+            Parameters:
+                r - the current position of the particle
+                w - the current velocity mismatch of the particle
+                v - the current velocity of the fluid flow at r
+
+            Returns:
+                the new position for the particle
+        """
+        pass
+
+    def w_next(self, r, v, order=1):
+        """ Get the next particle velocity difference, w, given the current location, the velocity of the fluid flow at 
+        """
+        pass
+
+    def velocity_kernel(self, x, t):
+        """ Return the velocity part of the the Maxey-Riley equations 
+        
+            The velocity kernel is:
+
+            \[
+                G(t) = (R-1)\frac{du}{dt} - Rw\cdot \nabla u - \frac{R}{S}w
+            \]
+        """
+        pass
+
+    def history_kernel(self, x, t):
+        """ Return the history part of the Maxey-Riley equations
+        
+            The history kernel is:
+
+            \[
+                H(t) = -R \sqrt{\frac{3}{\pi S}} \int_{t_0}^{t+\delta t} \frac{w(\tau)}{\sqrt{t-\tau}}d\tau
+            \]
+
+            (see Daitsche, 2013).
+        """
+        pass

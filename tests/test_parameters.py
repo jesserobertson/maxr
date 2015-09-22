@@ -3,12 +3,14 @@
 
 import unittest
 
+from maxr import Parameters
+
 class TestParameters(unittest.TestCase):
 
     """ Check that parameters get updated ok
     """
 
-    def setup(self):
+    def setUp(self):
         self.p = Parameters()
 
     def test_setting(self):
@@ -25,7 +27,7 @@ class TestParameters(unittest.TestCase):
     def test_attributes(self):
         "Attributes should be copied to the dictionary"
         for par, val in self.p.items():
-            self.assertEqual(getattr(self, par), val)
+            self.assertEqual(getattr(self.p, par), val)
 
 if __name__ == '__main__':
     unittest.main()
