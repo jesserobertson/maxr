@@ -24,13 +24,10 @@ before_install:
   - conda info -a
 
 install:
-  - conda create -q -n test-maxr python=$TRAVIS_PYTHON_VERSION numpy scipy matplotlib coverage coveralls
+  - conda create -q -n test-maxr python=$TRAVIS_PYTHON_VERSION numpy scipy matplotlib
   - source activate test-maxr
   - python setup.py update_version install
 
 # Command to run tests
 script:
-  - coverage run --source maxr run_test.py
-
-after_success:
-  - coveralls
+  - python setup.py test
