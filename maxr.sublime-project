@@ -4,14 +4,14 @@
 		{
 			"path": ".",
 			"name": "Project files",
-			"folder_exclude_patterns": ["maxr", "tests", "logs", "build", "docs", "examples", "dist", "*.egg-info"],
+			"folder_exclude_patterns": ["maxr", "tests", "logs", "build", "docs", "__pycache__", "examples", "dist", "*.egg-info"],
 			"file_exclude_patterns": ["*.sublime-workspace", ".coverage"]
 		},
 		{
 			"path": "maxr",
 			"name": "Source",
-			"folder_exclude_patterns": [],
-			"file_exclude_patterns": ["*.o"]
+			"folder_exclude_patterns": ["__pycache__"],
+			"file_exclude_patterns": ["*.pyc"]
 		},
 		{
 			"path": "tests",
