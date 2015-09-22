@@ -5,7 +5,7 @@
 
 from __future__ import print_function, division
 
-from numpy import arange, empty, sqrt
+from numpy import arange, empty, sqrt, array
 
 
 def alpha(n):
@@ -120,9 +120,24 @@ def gamma(n):
             -292/315 + 244/315 * sqrt(2)])
 
     elif n == 5:
-        gamma = array([])
+        gamma = array([
+            244/315 * sqrt(2),
+            362/105 * sqrt(3) - 976/315 * sqrt(2),
+            500/63 * sqrt(5) - 1448/105 * sqrt(3) + 488/105 * sqrt(2),
+            -290/21 * sqrt(5) + 724/35 * sqrt(3) - 976/315 * sqrt(2),
+            220/21 * sqrt(5) - 1448/105 * sqrt(3) + 244/315 * sqrt(2),
+            -164/63 * sqrt(5) + 362/105 * sqrt(3)])
 
     elif n == 6: 
-        pass
+        gamma = array([
+            244/315 * sqrt(2),
+            362/105 * sqrt(3) - 976/315 * sqrt(2),
+            5584/315 - 1448/105 * sqrt(3) + 488/105 * sqrt(2),
+            344/21 * sqrt(6) - 22336/315 + 724/35 * sqrt(3) 
+                - 976/315 * sqrt(2),
+            -1188/35 * sqrt(6) + 11168/105 - 1448/105 * sqrt(3) 
+                + 244/315 * sqrt(2),
+            936/35 * sqrt(6) - 22336/315 + 362/105 * sqrt(3),
+            -754/105 * sqrt(6) + 5584/315])
 
     return gamma
