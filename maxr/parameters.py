@@ -6,7 +6,14 @@
     description: Parameter classes for maxr
 """
 
+from __future__ import print_function, division
+
 class Parameters(dict):
+
+    """ Manages parameters for integration of the Maxey-Riley equations
+
+        To see what parameters you can change, check out Parameters.keys(). All keys can be set as 
+    """
 
     default_parameters = dict(
         # Integration scheme properties
@@ -36,6 +43,7 @@ class Parameters(dict):
         ('rhop', 'particle_density'),
         ('a', 'particle_radius')
     ]
+    _keys = []
 
     def __init__(self, **kwargs):
         super(Parameters, self).__init__()
@@ -43,7 +51,20 @@ class Parameters(dict):
         self.update(kwargs)
         self.nondimensionalise()
 
+    @property
+    def allowed_keys(self):
+        "Return the list of parameter keys"
+        if self._keys == []:
+            for pair in self.equivalent:
+                self._keys.extend(pair)
+            self._keys = set(self._keys)
+        return self._keys
+
     def __setitem__(self, key, value):
+        # Check that the key is one that we can set
+        if key not in self.allowed_keys:
+            raise KeyError('Unknown parameter key {0}'.format(key))
+
         # Set the given key value
         super(Parameters, self).__setitem__(key, value)
         
@@ -65,7 +86,7 @@ class Parameters(dict):
             return super(Parameters, self).__getattr__(key)
 
     def __setattr__(self, key, value):
-        if key in self.keys():
+        if key in self.allowed_keys:
             self[key] = value
         else:
             super(Parameters, self).__setattr__(key, value)

@@ -1,6 +1,7 @@
 """ file: test_parameters.py
 """
 
+from __future__ import print_function, division
 import unittest
 
 from maxr import Parameters
@@ -28,6 +29,11 @@ class TestParameters(unittest.TestCase):
         "Attributes should be copied to the dictionary"
         for par, val in self.p.items():
             self.assertEqual(getattr(self.p, par), val)
+
+    def test_unknown(self):
+        "Adding an unknown key raises a KeyError"
+        self.assertRaises(KeyError, lambda *a: self.p.__setitem__(*a),
+                          'foo', 'bar')
 
 if __name__ == '__main__':
     unittest.main()
