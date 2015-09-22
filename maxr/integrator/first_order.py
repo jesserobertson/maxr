@@ -8,7 +8,7 @@
 
 from __future__ import print_function, division
 
-from .integrator import IntegratorBase
+from .stepper import StepperBase
 
 class Stepper(StepperBase):
 

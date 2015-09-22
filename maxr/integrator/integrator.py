@@ -26,5 +26,5 @@ def Integrator(object):
     """
 
     def __init__(self, flow, parameters):
-        super(Stepper, self).__init__()
+        super(Integrator, self).__init__()
         
