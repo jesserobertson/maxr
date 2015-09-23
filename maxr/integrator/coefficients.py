@@ -11,17 +11,21 @@ from numpy import arange, empty, sqrt, array
 def alpha(n):
     """ First-order integration coefficients for history term
     """
-    # Left boundary
-    alpha = empty(n + 1)
-    alpha[0] = 1
-    
-    # Middle
-    js = arange(1, n)
-    alpha[1:-1] = (js-1) ** (3/2) + (js+1) ** (3/2) - 2 * js ** (3/2)
+    if n > 0:
+        # Left boundary
+        alpha = empty(n + 1)
+        alpha[0] = 1
         
-    # Right boundary
-    alpha[-1] = (n-1) ** (3/2) - n ** (3/2) + 6/4 * n ** (1/2)
-    return 4/3 * alpha
+        # Middle
+        js = arange(1, n)
+        alpha[1:-1] = (js-1) ** (3/2) + (js+1) ** (3/2) - 2 * js ** (3/2)
+            
+        # Right boundary
+        alpha[-1] = (n-1) ** (3/2) - n ** (3/2) + 6/4 * n ** (1/2)
+        return 4/3 * alpha
+
+    else:
+        raise ValueError("n must be greater than 1")
 
 
 def beta(n):
@@ -48,9 +52,6 @@ def beta(n):
                             + (n-2) ** (3/2))
         beta[-1] = 8/15 * (n ** (5/2) - (n-1) ** (5/2)) \
                    + 2/3 * (-3 * n ** (3/2) + (n-1) ** (3/2)) + 2 * n ** (1/2)
-
-    if n < 1:
-        raise ValueError("n must be greated than 2 for a second-order scheme")
     
     # First few have to be handled specially    
     elif n == 1:
@@ -63,6 +64,10 @@ def beta(n):
         beta = array([
             4/5 * sqrt(2), 14/5 * sqrt(3) - 12/5 * sqrt(2),
             -8/5 * sqrt(3) + 12/5 * sqrt(2), 4/5 * sqrt(3)  - 4/5 * sqrt(2)])
+
+    else:
+        raise ValueError("n must be greater than 1")
+
     return beta
 
 
@@ -107,13 +112,10 @@ def gamma(n):
                     + 16/15 * n ** (5/2) - 22/9 * n ** (3/2) \
                     - 2/9 * (n-2) ** (3/2) + 2 * n ** (1/2)
 
-    elif n < 3:
-        raise ValueError("n must be greater than 3 for a third-order scheme")
-
     # First few have to be handled specially
     elif n == 1:
         gamma = alpha(1)
-    
+
     elif n == 2: 
         gamma = beta(2)
 
@@ -148,5 +150,8 @@ def gamma(n):
                 + 244/315 * sqrt(2),
             936/35 * sqrt(6) - 22336/315 + 362/105 * sqrt(3),
             -754/105 * sqrt(6) + 5584/315])
+
+    else:
+        raise ValueError("n must be greater than 1")
 
     return gamma
