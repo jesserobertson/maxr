@@ -183,7 +183,8 @@ def integrator(states, times, order=3):
             times - the times corresponding to each state measurement
             order - the order of the integrator (defaults to third-order)
     """
-    const = 2 * numpy.sqrt(times[-1] - times[0]) * states[0]
-    return const + numpy.sqrt(times[1] - times[0]) \
-        * numpy.sum(coefficients(len(states) - 1, order) * states[::-1])
+    _n = len(states)-1
+    const = 2 * sqrt(times[-1] - times[0]) * states[0]
+    return const + sqrt(times[1] - times[0]) \
+        * (coefficients(_n, order) * states[::-1]).sum()
     
