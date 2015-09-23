@@ -49,10 +49,13 @@ def beta(n):
         beta[-1] = 8/15 * (n ** (5/2) - (n-1) ** (5/2)) \
                    + 2/3 * (-3 * n ** (3/2) + (n-1) ** (3/2)) + 2 * n ** (1/2)
 
-    if n < 2:
+    if n < 1:
         raise ValueError("n must be greated than 2 for a second-order scheme")
     
-    # First couple have to be handled specially    
+    # First few have to be handled specially    
+    elif n == 1:
+        beta = alpha(1)
+
     elif n == 2:
         beta = array([12/15 * sqrt(2), 16/15 * sqrt(2), 2/15 * sqrt(2)]) 
     
@@ -108,6 +111,12 @@ def gamma(n):
         raise ValueError("n must be greater than 3 for a third-order scheme")
 
     # First few have to be handled specially
+    elif n == 1:
+        gamma = alpha(1)
+    
+    elif n == 2: 
+        gamma = beta(2)
+
     elif n == 3:
         gamma = array([
             68/105 * sqrt(3), 6/7 * sqrt(3), 
