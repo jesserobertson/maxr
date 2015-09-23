@@ -7,6 +7,24 @@ from __future__ import print_function, division
 
 from numpy import arange, empty, sqrt, array
 
+# Just to make it easy for everyone
+def coefficients(n, order=3):
+    """ Return the coefficients for the given order
+
+        Parameters:
+            n - the number of coefficients to get (i.e. the length of your 
+                state history vector)
+            order - the order of the integrator scheme.
+    """
+    if order == 3:
+        return gamma(n)
+    elif order == 2:
+        return beta(n)
+    elif order == 1:
+        return alpha(n)
+    else:
+        raise ValueError("Order must be one of 1, 2 or 3")
+
 
 def alpha(n):
     """ First-order integration coefficients for history term

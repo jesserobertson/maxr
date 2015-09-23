@@ -9,7 +9,7 @@
 from __future__ import print_function, division
 
 from ..parameters import Parameters
-from . import first_order, second_order, third_order
+from .coefficients import coefficients
 
 
 def Integrator(object):

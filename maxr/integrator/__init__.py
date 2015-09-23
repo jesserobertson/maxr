@@ -1,1 +1,2 @@
-from . import coefficients, integrator, stepper
+from . import integrator, stepper
+from .coefficients import coefficients
