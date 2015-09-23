@@ -54,6 +54,7 @@ class Parameters(dict):
         super(Parameters, self).__init__()
         self.update(self.default_parameters)
         self.update(kwargs)
+        self._calc_nd = True
         self.nondimensionalise()
 
     @property
@@ -81,8 +82,17 @@ class Parameters(dict):
                 super(Parameters, self).__setitem__(other, value)
 
         # Recalculate non-dimensional parameters if required
-        if key not in ('R', 'S'):
+        if self._calc_nd and key not in ('R', 'S'):
             self.nondimensionalise()
+
+    def update(self, new):
+        """ Update parameter values
+        """
+        self._calc_nd = False
+        for key, value in new.items():
+            self[key] = value
+        self._calc_nd = True
+        self.nondimensionalise()
 
     def __getattr__(self, key):
         try:
@@ -99,4 +109,5 @@ class Parameters(dict):
     def nondimensionalise(self):
         """ Calculate non dimensional parameters for the integration
         """
-        pass
+        self['R'] = (3 * self.rhof) / (self.rhof + 2 * self.rhop)
+        self['S'] = self.a ** 2 * self.nuf / (3 * self.T)
