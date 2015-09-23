@@ -26,6 +26,20 @@ def coefficients(n, order=3):
         raise ValueError("Order must be one of 1, 2 or 3")
 
 
+def integrator(states, times, order=3):
+    """ A history integrator which integrates a given history from the start to the end
+
+        Parameters:
+            states - a vector of states (i.e. the history) to integrate
+            times - the times corresponding to each state measurement
+            order - the order of the integrator (defaults to third-order)
+    """
+    _n = len(states)-1
+    const = 2 * sqrt(times[-1] - times[0]) * states[0]
+    return const + sqrt(times[1] - times[0]) \
+        * (coefficients(_n, order) * states[::-1]).sum()
+
+## COEFFICIENTS
 def alpha(n):
     """ First-order integration coefficients for history term
     """
@@ -174,17 +188,4 @@ def gamma(n):
 
     return gamma
 
-
-def integrator(states, times, order=3):
-    """ A history integrator which integrates a given history from the start to the end
-
-        Parameters:
-            states - a vector of states (i.e. the history) to integrate
-            times - the times corresponding to each state measurement
-            order - the order of the integrator (defaults to third-order)
-    """
-    _n = len(states)-1
-    const = 2 * sqrt(times[-1] - times[0]) * states[0]
-    return const + sqrt(times[1] - times[0]) \
-        * (coefficients(_n, order) * states[::-1]).sum()
     
