@@ -1,2 +1,1 @@
-from . import integrator, stepper
-from .coefficients import coefficients
+from . import integrator, stepper, history
