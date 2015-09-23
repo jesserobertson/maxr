@@ -173,3 +173,17 @@ def gamma(n):
         raise ValueError("n must be greater than 1")
 
     return gamma
+
+
+def integrator(states, times, order=3):
+    """ A history integrator which integrates a given history from the start to the end
+
+        Parameters:
+            states - a vector of states (i.e. the history) to integrate
+            times - the times corresponding to each state measurement
+            order - the order of the integrator (defaults to third-order)
+    """
+    const = 2 * numpy.sqrt(times[-1] - times[0]) * states[0]
+    return const + numpy.sqrt(times[1] - times[0]) \
+        * numpy.sum(coefficients(len(states) - 1, order) * states[::-1])
+    
