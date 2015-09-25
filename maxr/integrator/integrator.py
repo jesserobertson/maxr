@@ -8,23 +8,33 @@
 
 from __future__ import print_function, division
 
-from ..parameters import Parameters
-from . import history
 
-
-def Integrator(object):
+class Integrator(object):
 
     """ The class which does the integration!
 
-        We use the scheme from Daitsche (2013; http://arxiv.org/pdf/1210.2576.pdf) which is third-order accurate in the timestep
+        We use the scheme from Daitsche (2013) which is third-order accurate
+        in the timestep (see http://arxiv.org/pdf/1210.2576.pdf)
 
-        Parameters: 
-            flow - a function which, when given (x, t), returns a 
-                velocity vector u.  
+        Parameters:
+            flow - a function which, when given (x, t), returns a
+                velocity vector u.
             parameters - an instance of maxr.Parameters which contains
                 the parameters for the integration.
     """
 
     def __init__(self, flow, parameters):
         super(Integrator, self).__init__()
-        
+        self.flow = flow
+        self.parameters = parameters
+
+    def integrate(self):
+        """ Integrate me!
+        """
+        pass
+
+    @property
+    def history(self):
+        """ Return history
+        """
+        pass
