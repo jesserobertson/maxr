@@ -62,7 +62,7 @@ def from_function(flow, filename=None, xgrid=None, ygrid=None, tgrid=None):
                 fhandle[key + 'y'][:, :, idx] = dcdy
 
         # time derivative
-        ddt = diff(fhandle['time'])
+        ddt = diff(fhandle['t'])
         for comp in 'uv':
             key = 'd{0}/dt'.format(comp)
             fhandle[key][..., 0] = 0

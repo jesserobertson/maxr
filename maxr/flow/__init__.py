@@ -1,5 +1,5 @@
 from .flow import Flow
 from .generators import from_function
-from .blink import blink
+from . import blink
 
-__all__ = ['Flow', 'from_function']
+__all__ = ['Flow', 'from_function', 'blink']
