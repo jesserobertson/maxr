@@ -65,3 +65,32 @@ class TestFlow(unittest.TestCase):
         "Flow interpolations should be accessible"
         for key in ('u', 'v', 'du/dx', 'dv/dy', 'du/dt'):
             self.assertTrue(self.flow(key) is not None)
+
+    def test_flow_info(self):
+        "Flow info should be accessible"
+        self.flow.info()
+
+    def test_plot_data(self):
+        "Flow data should be accessible to plot"
+        xps, yps = self.flow.grid()
+        _, axes = plt.subplots(2, 3)
+        for iidx in (0, 1):
+            dfunc = 'dv' if iidx else 'du'
+            for jidx in (0, 1):
+                dps = 'dy' if jidx else 'dx'
+                axis = axes[iidx, jidx]
+                key = dfunc + '/' + dps
+                axis.contourf(xps, yps, self.flow.data[key][..., 5])
+                axis.set_aspect('equal')
+                axis.set_axis_off()
+                axis.set_title(key)
+
+            axis = axes[iidx, 2]
+            key = dfunc + '/dt'
+            axis.contourf(xps, yps, self.flow.data[key][..., 5])
+            axis.set_axis_off()
+            axis.set_title(key)
+
+    def test_snapshots(self):
+        "Plotting snapshots should work ok"
+        self.flow.plot_snapshots(plot_every=1)
