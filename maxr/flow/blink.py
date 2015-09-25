@@ -6,6 +6,8 @@
     description: Blinking vortex flow
 """
 
+from __future__ import print_function, division
+
 from numpy import asarray, clip, pi, sin
 
 
