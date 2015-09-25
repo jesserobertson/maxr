@@ -53,7 +53,7 @@ def from_function(flow, filename=None, xgrid=None, ygrid=None, tgrid=None):
         # x and y derivatives
         ddx = fhandle['x'][1] - fhandle['x'][0]
         ddy = fhandle['y'][1] - fhandle['y'][0]
-        for idx, time in enumerate(fhandle['time']):
+        for idx, time in enumerate(fhandle['t']):
             for comp in 'uv':
                 key = 'd{0}/d'.format(comp)
                 dcdx, dcdy = gradient(fhandle[comp][:, :, idx],
