@@ -6,6 +6,7 @@ from __future__ import print_function, division
 import unittest
 import numpy
 import matplotlib.pyplot as plt
+import os
 
 from maxr import flow
 from maxr.flow.blink import blink, tick, tock
@@ -35,3 +36,32 @@ class TestBlink(unittest.TestCase):
         plt.plot(self.times, uus, label='u')
         plt.plot(self.times, vus, label='v')
         plt.legend(loc='best')
+
+
+class TestFlow(unittest.TestCase):
+
+    """ Tests for Flow class
+    """
+
+    def setUp(self):
+        self.fname = 'blink_test.hdf5'
+        flow.from_function(blink(gamma=1, period=0.5), self.fname)
+        self.flow = flow.Flow(self.fname)
+
+    def tearDown(self):
+        if os.path.exists(self.fname):
+            os.remove(self.fname)
+
+    def test_makefile(self):
+        "Flow file should be created"
+        self.assertTrue(os.path.exists(self.fname))
+
+    def test_readifle(self):
+        "Flow variables should be accessible"
+        for key in 'tuvxy':
+            self.assertTrue(self.flow.data[key] is not None)
+
+    def test_interp(self):
+        "Flow interpolations should be accessible"
+        for key in ('u', 'v', 'du/dx', 'dv/dy', 'du/dt'):
+            self.assertTrue(self.flow(key) is not None)
