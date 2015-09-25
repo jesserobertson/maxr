@@ -6,19 +6,31 @@
     description: Utilities for managing flow snapshots
 """
 
+from __future__ import print_function, division
+
+import h5py
+from numpy import meshgrid
+from scipy.interpolate import RegularGridInterpolator
+
+
 class Flow(object):
-    
+
+    """ Manager for gridded flow data
+    """
+
     def __init__(self, filename):
         self.data = h5py.File(filename)
-    
+
     def close(self):
+        """ Close files gracefully
+        """
         self.data.close()
-    
+
     def __call__(self, key):
         """ Returns an interpolation for the given value for the snapshot at idx
         """
         return RegularGridInterpolator(
-            points=(self.data['x'], self.data['y'], self.data['t']), 
+            points=(self.data['x'], self.data['y'], self.data['t']),
             values=self.data[key])
 
     def info(self):
@@ -32,7 +44,7 @@ class Flow(object):
                 group = self.data[key]
                 for key2 in group.keys():
                     print(key + '/' + key2, group[key2].shape)
-                    
+
     def snapshot(self, idx):
         """ Return a velocity field snapshot
         """
@@ -40,25 +52,26 @@ class Flow(object):
 
     def grid(self):
         """ Return the spatial sampling grid
-        """        
-        return numpy.meshgrid(self.data['x'], self.data['y'])
-    
+        """
+        return meshgrid(self.data['x'], self.data['y'])
+
     def plot_snapshots(self, plot_every=1):
         """ Plot the snapshots
         """
+        from matplotlib.pyplot import subplots
         # Get info on axes from file
-        ts = self.data['t'][::plot_every]
-        x, y = self.grid()
+        times = self.data['t'][::plot_every]
+        xxs, yys = self.grid()
 
         # Make figure
-        nplots, ncol = len(ts), 5
-        fig, axes = plt.subplots(nplots // ncol, ncol)
+        nplots, ncol = len(times), 5
+        fig, axes = subplots(nplots // ncol, ncol)
         fig.set_size_inches(3 * ncol, 3 * (nplots // ncol))
-        for idx, (t, ax) in enumerate(zip(ts, axes.ravel())):
-            u, v = self.snapshot(idx * plot_every)
-            ax.quiver(x, y, u, v, 
-                      pivot='mid', angles='xy', 
-                      scale_units='xy', scale=1.5)
-            ax.set_axis_off()
-            ax.set_aspect('equal')
-            ax.set_title('t={0:0.2}'.format(t))
+        for idx, (time, axis) in enumerate(zip(times, axes.ravel())):
+            uus, vvs = self.snapshot(idx * plot_every)
+            axis.quiver(xxs, yys, uus, vvs,
+                        pivot='mid', angles='xy',
+                        scale_units='xy', scale=1.5)
+            axis.set_axis_off()
+            axis.set_aspect('equal')
+            axis.set_title('t={0:0.2}'.format(time))
