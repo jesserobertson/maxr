@@ -38,10 +38,9 @@ def from_function(flow, filename=None, xgrid=None, ygrid=None, tgrid=None):
 
         # Write velocity datasets to file
         xxs, yys = meshgrid(fhandle['x'], fhandle['y'])
-        for idx, time in enumerate(times):
-            uus, vus = flow(xxs, yys, time)
-            fhandle['u'][:, :, idx] = uus
-            fhandle['v'][:, :, idx] = vus
+        uus, vus = flow(xxs, yys, times)
+        fhandle['u'][...] = uus
+        fhandle['v'][...] = vus
 
         # Create derivative datasets
         for idx, axis in enumerate('xyt'):

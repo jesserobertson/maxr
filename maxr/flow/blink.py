@@ -8,7 +8,7 @@
 
 from __future__ import print_function, division
 
-from numpy import asarray, clip, pi, sin
+from numpy import asarray, clip, pi, sin, newaxis
 
 
 def vortex(x_center, y_center, gamma):
@@ -47,8 +47,8 @@ def blink(gamma, period):
     def _flow(xxs, yys, time):
         "Wrapped flow function"
         _vortex = [v(xxs, yys) for v in vortices]
-        return _vortex[0][0] * tick(time, period) \
-               + _vortex[1][0] * tock(time, period), \
-               _vortex[0][1] * tick(time, period) \
-               + _vortex[1][1] * tock(time, period)
+        return _vortex[0][0][..., newaxis] * tick(time, period) \
+               + _vortex[1][0][..., newaxis] * tock(time, period), \
+               _vortex[0][1][..., newaxis] * tick(time, period) \
+               + _vortex[1][1][..., newaxis] * tock(time, period)
     return _flow
