@@ -20,8 +20,8 @@ def vortex(x_center, y_center, gamma):
         xxs = asarray(xxs)
         yys = asarray(yys)
         rsq = (xxs - x_center) ** 2 + (yys - y_center) ** 2
-        return (gamma * (yys - y_center) / (2 * pi * rsq),
-                -gamma * (xxs - x_center) / (2 * pi * rsq))
+        return (-gamma * (xxs - x_center) / (2 * pi * rsq),
+                gamma * (yys - y_center) / (2 * pi * rsq))
     return _flow
 
 
