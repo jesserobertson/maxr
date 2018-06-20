@@ -2,6 +2,5 @@
 *.hdf5
 __pycache__
 *.egg*
-_version.py
 *.sublime-workspace
 .ipynb_checkpoints

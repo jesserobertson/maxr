@@ -1,0 +1,2 @@
+include versioneer.py
+include maxr/_version.py
