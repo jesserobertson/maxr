@@ -26,7 +26,7 @@ from setuptools.command.sdist import sdist
 LOGGER = getLogger()
 
 # Where are our extensions located?
-EXTENSIONS_MODULE = ['hyper', 'ext']
+EXTENSIONS_MODULE = ['maxr', 'ext']
 PATH_TO_EXTENSIONS = path.join(*(
     [path.abspath(path.dirname(__file__))]
     + EXTENSIONS_MODULE
