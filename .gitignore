@@ -4,3 +4,9 @@ __pycache__
 *.egg*
 *.sublime-workspace
 .ipynb_checkpoints
+
+# Build artifacts
+build
+dist
+maxr/ext/*.so
+maxr/ext/*.c
