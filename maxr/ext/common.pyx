@@ -1,6 +1,6 @@
-""" file: common.pyx (hyper.ext)
+""" file: common.pxd (maxr.ext)
     author: Jess Robertson, CSIRO Mineral Resources
     date:   March 2016
 
-    description: Common routines for cython extensions
+    description: Common inclusions for cython extensions
 """

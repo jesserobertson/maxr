@@ -562,6 +562,7 @@ static CYTHON_INLINE float __PYX_NAN() {
 #define __PYX_HAVE__maxr__ext__common
 #define __PYX_HAVE_API__maxr__ext__common
 /* Early includes */
+#include <math.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -768,6 +769,24 @@ static const char *__pyx_f[] = {
   "maxr/ext/common.pyx",
 };
 
+/* "maxr/ext/common.pxd":11
+ * 
+ * # Custom types
+ * ctypedef double real_t             # <<<<<<<<<<<<<<
+ * ctypedef unsigned int uint_t
+ * 
+ */
+typedef double __pyx_t_4maxr_3ext_6common_real_t;
+
+/* "maxr/ext/common.pxd":12
+ * # Custom types
+ * ctypedef double real_t
+ * ctypedef unsigned int uint_t             # <<<<<<<<<<<<<<
+ * 
+ * # Define some compile-time constants
+ */
+typedef unsigned int __pyx_t_4maxr_3ext_6common_uint_t;
+
 /*--- Type declarations ---*/
 
 /* --- Runtime support code (head) --- */
@@ -944,7 +963,13 @@ static int __Pyx_ExportVoidPtr(PyObject *name, void *p, const char *sig);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'libc.math' */
+
 /* Module declarations from 'maxr.ext.common' */
+static __pyx_t_4maxr_3ext_6common_real_t __pyx_v_4maxr_3ext_6common_SQRT_2;
+static __pyx_t_4maxr_3ext_6common_real_t __pyx_v_4maxr_3ext_6common_SQRT_3;
+static __pyx_t_4maxr_3ext_6common_real_t __pyx_v_4maxr_3ext_6common_SQRT_5;
+static __pyx_t_4maxr_3ext_6common_real_t __pyx_v_4maxr_3ext_6common_SQRT_6;
 static int __pyx_v_4maxr_3ext_6common_NUM_THREADS;
 #define __Pyx_MODULE_NAME "maxr.ext.common"
 extern int __pyx_module_is_main_maxr__ext__common;
@@ -953,16 +978,135 @@ int __pyx_module_is_main_maxr__ext__common = 0;
 /* Implementation of 'maxr.ext.common' */
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_SQRT_2[] = "SQRT_2";
+static const char __pyx_k_SQRT_3[] = "SQRT_3";
+static const char __pyx_k_SQRT_5[] = "SQRT_5";
+static const char __pyx_k_SQRT_6[] = "SQRT_6";
 static const char __pyx_k_pyx_capi[] = "__pyx_capi__";
 static const char __pyx_k_NUM_THREADS[] = "NUM_THREADS";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_file_common_pyx_hyper_ext_autho[] = " file: common.pyx (hyper.ext)\n    author: Jess Robertson, CSIRO Mineral Resources\n    date:   March 2016\n\n    description: Common routines for cython extensions\n";
+static const char __pyx_k_file_common_pxd_maxr_ext_author[] = " file: common.pxd (maxr.ext)\n    author: Jess Robertson, CSIRO Mineral Resources\n    date:   March 2016\n\n    description: Common inclusions for cython extensions\n";
 static PyObject *__pyx_n_s_NUM_THREADS;
+static PyObject *__pyx_n_s_SQRT_2;
+static PyObject *__pyx_n_s_SQRT_3;
+static PyObject *__pyx_n_s_SQRT_5;
+static PyObject *__pyx_n_s_SQRT_6;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_pyx_capi;
 static PyObject *__pyx_n_s_test;
 /* Late includes */
+
+/* "maxr/ext/common.pxd":21
+ * 
+ * # Power functions
+ * cdef inline real_t pow_3_2(int n):             # <<<<<<<<<<<<<<
+ *     "Evaulate n ** 3/2"
+ *     return sqrt(n * n * n)
+ */
+
+static CYTHON_INLINE __pyx_t_4maxr_3ext_6common_real_t __pyx_f_4maxr_3ext_6common_pow_3_2(int __pyx_v_n) {
+  __pyx_t_4maxr_3ext_6common_real_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("pow_3_2", 0);
+
+  /* "maxr/ext/common.pxd":23
+ * cdef inline real_t pow_3_2(int n):
+ *     "Evaulate n ** 3/2"
+ *     return sqrt(n * n * n)             # <<<<<<<<<<<<<<
+ * 
+ * cdef inline real_t pow_5_2(int n):
+ */
+  __pyx_r = sqrt(((__pyx_v_n * __pyx_v_n) * __pyx_v_n));
+  goto __pyx_L0;
+
+  /* "maxr/ext/common.pxd":21
+ * 
+ * # Power functions
+ * cdef inline real_t pow_3_2(int n):             # <<<<<<<<<<<<<<
+ *     "Evaulate n ** 3/2"
+ *     return sqrt(n * n * n)
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "maxr/ext/common.pxd":25
+ *     return sqrt(n * n * n)
+ * 
+ * cdef inline real_t pow_5_2(int n):             # <<<<<<<<<<<<<<
+ *     "Evaulate n ** 5/2"
+ *     return sqrt(n * n * n * n * n)
+ */
+
+static CYTHON_INLINE __pyx_t_4maxr_3ext_6common_real_t __pyx_f_4maxr_3ext_6common_pow_5_2(int __pyx_v_n) {
+  __pyx_t_4maxr_3ext_6common_real_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("pow_5_2", 0);
+
+  /* "maxr/ext/common.pxd":27
+ * cdef inline real_t pow_5_2(int n):
+ *     "Evaulate n ** 5/2"
+ *     return sqrt(n * n * n * n * n)             # <<<<<<<<<<<<<<
+ * 
+ * cdef inline real_t pow_7_2(int n):
+ */
+  __pyx_r = sqrt(((((__pyx_v_n * __pyx_v_n) * __pyx_v_n) * __pyx_v_n) * __pyx_v_n));
+  goto __pyx_L0;
+
+  /* "maxr/ext/common.pxd":25
+ *     return sqrt(n * n * n)
+ * 
+ * cdef inline real_t pow_5_2(int n):             # <<<<<<<<<<<<<<
+ *     "Evaulate n ** 5/2"
+ *     return sqrt(n * n * n * n * n)
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "maxr/ext/common.pxd":29
+ *     return sqrt(n * n * n * n * n)
+ * 
+ * cdef inline real_t pow_7_2(int n):             # <<<<<<<<<<<<<<
+ *     "Evaulate n ** 7/2"
+ *     return sqrt(n * n * n * n * n * n * n)
+ */
+
+static CYTHON_INLINE __pyx_t_4maxr_3ext_6common_real_t __pyx_f_4maxr_3ext_6common_pow_7_2(int __pyx_v_n) {
+  __pyx_t_4maxr_3ext_6common_real_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("pow_7_2", 0);
+
+  /* "maxr/ext/common.pxd":31
+ * cdef inline real_t pow_7_2(int n):
+ *     "Evaulate n ** 7/2"
+ *     return sqrt(n * n * n * n * n * n * n)             # <<<<<<<<<<<<<<
+ * 
+ * # This gets updated automatically by setup.py...
+ */
+  __pyx_r = sqrt(((((((__pyx_v_n * __pyx_v_n) * __pyx_v_n) * __pyx_v_n) * __pyx_v_n) * __pyx_v_n) * __pyx_v_n));
+  goto __pyx_L0;
+
+  /* "maxr/ext/common.pxd":29
+ *     return sqrt(n * n * n * n * n)
+ * 
+ * cdef inline real_t pow_7_2(int n):             # <<<<<<<<<<<<<<
+ *     "Evaulate n ** 7/2"
+ *     return sqrt(n * n * n * n * n * n * n)
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
 
 static PyMethodDef __pyx_methods[] = {
   {0, 0, 0, 0}
@@ -982,7 +1126,7 @@ static PyModuleDef_Slot __pyx_moduledef_slots[] = {
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
     "common",
-    __pyx_k_file_common_pyx_hyper_ext_autho, /* m_doc */
+    __pyx_k_file_common_pxd_maxr_ext_author, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
   #else
@@ -1002,6 +1146,10 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_NUM_THREADS, __pyx_k_NUM_THREADS, sizeof(__pyx_k_NUM_THREADS), 0, 0, 1, 1},
+  {&__pyx_n_s_SQRT_2, __pyx_k_SQRT_2, sizeof(__pyx_k_SQRT_2), 0, 0, 1, 1},
+  {&__pyx_n_s_SQRT_3, __pyx_k_SQRT_3, sizeof(__pyx_k_SQRT_3), 0, 0, 1, 1},
+  {&__pyx_n_s_SQRT_5, __pyx_k_SQRT_5, sizeof(__pyx_k_SQRT_5), 0, 0, 1, 1},
+  {&__pyx_n_s_SQRT_6, __pyx_k_SQRT_6, sizeof(__pyx_k_SQRT_6), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_capi, __pyx_k_pyx_capi, sizeof(__pyx_k_pyx_capi), 0, 0, 1, 1},
@@ -1046,6 +1194,10 @@ static int __Pyx_modinit_variable_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_variable_export_code", 0);
   /*--- Variable export code ---*/
+  if (__Pyx_ExportVoidPtr(__pyx_n_s_SQRT_2, (void *)&__pyx_v_4maxr_3ext_6common_SQRT_2, "__pyx_t_4maxr_3ext_6common_real_t") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportVoidPtr(__pyx_n_s_SQRT_3, (void *)&__pyx_v_4maxr_3ext_6common_SQRT_3, "__pyx_t_4maxr_3ext_6common_real_t") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportVoidPtr(__pyx_n_s_SQRT_5, (void *)&__pyx_v_4maxr_3ext_6common_SQRT_5, "__pyx_t_4maxr_3ext_6common_real_t") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportVoidPtr(__pyx_n_s_SQRT_6, (void *)&__pyx_v_4maxr_3ext_6common_SQRT_6, "__pyx_t_4maxr_3ext_6common_real_t") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   if (__Pyx_ExportVoidPtr(__pyx_n_s_NUM_THREADS, (void *)&__pyx_v_4maxr_3ext_6common_NUM_THREADS, "int") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -1220,7 +1372,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("common", __pyx_methods, __pyx_k_file_common_pyx_hyper_ext_autho, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("common", __pyx_methods, __pyx_k_file_common_pxd_maxr_ext_author, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -1268,7 +1420,7 @@ if (!__Pyx_RefNanny) {
   #endif
 
   /* "maxr/ext/common.pyx":1
- * """ file: common.pyx (hyper.ext)             # <<<<<<<<<<<<<<
+ * """ file: common.pxd (maxr.ext)             # <<<<<<<<<<<<<<
  *     author: Jess Robertson, CSIRO Mineral Resources
  *     date:   March 2016
  */
@@ -1276,6 +1428,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "maxr/ext/common.pxd":29
+ *     return sqrt(n * n * n * n * n)
+ * 
+ * cdef inline real_t pow_7_2(int n):             # <<<<<<<<<<<<<<
+ *     "Evaulate n ** 7/2"
+ *     return sqrt(n * n * n * n * n * n * n)
+ */
 
   /*--- Wrapped vars code ---*/
 
