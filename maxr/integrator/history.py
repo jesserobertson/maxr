@@ -189,5 +189,3 @@ def gamma(num):
         raise ValueError("num must be greater than 1")
 
     return _gamma
-
-    

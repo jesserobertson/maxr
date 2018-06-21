@@ -13,7 +13,7 @@ class BaseHarness(unittest.TestCase):
 
     order = 1
 
-    def test_pyth_cython_equality(self):
+    def test_equal_py_cy(self):
         "Python and Cython implementations should give the same coefficients"
         for length in range(1, 40):
             self.assertTrue(np.allclose(
@@ -28,6 +28,8 @@ class TestSecondOrderIntegrator(BaseHarness):
 
 class TestThirdOrderIntegrator(BaseHarness):
     order = 3
+
+del BaseHarness
 
 if __name__ == '__main__':
     unittest.main()
