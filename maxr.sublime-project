@@ -4,19 +4,23 @@
 		{
 			"path": ".",
 			"name": "Project files",
-			"folder_exclude_patterns": ["maxr", "tests", "logs", "build", "docs", "__pycache__", "examples", ".ipynb_checkpoints", "dist", "*.egg-info"],
+			"folder_exclude_patterns": [
+				"maxr", "tests", "logs", "build", "docs",
+				"__pycache__", "examples", ".ipynb_checkpoints", "dist", "*.egg-info",
+				".pytest_cache", "htmlcov"
+			],
 			"file_exclude_patterns": ["*.sublime-workspace", ".coverage"]
 		},
 		{
 			"path": "maxr",
 			"name": "Source",
 			"folder_exclude_patterns": ["__pycache__"],
-			"file_exclude_patterns": ["*.pyc"]
+			"file_exclude_patterns": ["*.pyc", "*.c"]
 		},
 		{
 			"path": "tests",
 			"name": "Tests",
-			"folder_exclude_patterns": [".ipynb_checkpoints"],
+			"folder_exclude_patterns": [".ipynb_checkpoints", "__pycache__"],
 			"file_exclude_patterns": []
 		},
 		{
@@ -39,19 +43,14 @@
 	"build_systems":
 	[
 		{
-			"name": "Production build",
-			"cmd": ["python", "setup.py", "develop"],
-			"working_dir": "$project_path"
-		},
-		{
-			"name": "Install",
-			"cmd": ["python", "setup.py", "develop"],
+			"name": "Development build",
+			"cmd": ["bash", "setup_mac.sh", "develop"],
 			"working_dir": "$project_path"
 		},
 		{
 			"name": "Run test suite",
-			"cmd": ["python", "setup.py", "test"],
-			"working_dir": "$project_path"
+			"cmd": ["bash", "setup_mac.sh", "test"],
+			"working_dir": "$project_path`"
 		}
 	]
 }
