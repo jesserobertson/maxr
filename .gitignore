@@ -2,6 +2,17 @@
 *.hdf5
 __pycache__
 *.egg*
-_version.py
 *.sublime-workspace
 .ipynb_checkpoints
+.DS_Store
+
+# Build artifacts
+build
+dist
+maxr/ext/*.so
+maxr/ext/*.c
+
+# Test artifacts
+.pytest_cache
+htmlcov
+.coverage

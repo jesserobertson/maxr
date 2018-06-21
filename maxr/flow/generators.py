@@ -18,11 +18,11 @@ def from_function(flow, filename=None, xgrid=None, ygrid=None, tgrid=None):
     filename = filename or 'flow.hdf5'
 
     # Define the grid
-    xgrid = xgrid or (-2, 2, 40)
-    ygrid = ygrid or (-2, 2, 40)
-    tgrid = tgrid or (0, 2, 20)
+    xgrid = xgrid if xgrid is not None else (-2, 2, 40)
+    ygrid = ygrid if ygrid is not None else (-2, 2, 40)
+    tgrid = tgrid if tgrid is not None else (0, 2, 20)
     shape = xgrid[-1], ygrid[-1], tgrid[-1]
-
+    
     # Write to file
     with h5py.File(filename, 'w') as fhandle:
         # Create axes datasets
