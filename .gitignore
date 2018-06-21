@@ -11,3 +11,8 @@ build
 dist
 maxr/ext/*.so
 maxr/ext/*.c
+
+# Test artifacts
+.pytest_cache
+htmlcov
+.coverage

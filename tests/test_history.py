@@ -4,9 +4,10 @@
 from __future__ import print_function, division
 
 import unittest
+from collections import defaultdict
+
 from numpy import array, sqrt, pi, linspace, sin, cos, arange, median
 from scipy.special import fresnel
-from collections import defaultdict
 
 from maxr.integrator import history
 

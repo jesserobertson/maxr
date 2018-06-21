@@ -6,7 +6,7 @@
 """
 
 from common cimport pow_3_2, uint_t, real_t
-from libc.math import sqrt
+from libc.math cimport sqrt
 
 cdef void alpha(real_t *coeffs, uint_t n):
     "First-order integration coefficients for history term"

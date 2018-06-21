@@ -10,7 +10,7 @@ from common cimport SQRT_2, SQRT_3, SQRT_5, SQRT_6
 from alpha cimport alpha
 from beta cimport beta
 
-from libc.math import sqrt
+from libc.math cimport sqrt
 
 cdef void gamma(real_t *coeffs, uint_t n):
     "Third-order integration coefficients for history term"
@@ -25,7 +25,7 @@ cdef void gamma(real_t *coeffs, uint_t n):
                    - 976/315. * SQRT_2
 
         # Middle
-        for i in range(4, n-2):
+        for i in range(4, n-3):
             coeffs[i] = (
                 16/105. * (pow_7_2(i+2) + pow_7_2(i-2) - 4 * pow_7_2(i+1)
                     - 4 * pow_7_2(i-1) + 6 * pow_7_2(i))
