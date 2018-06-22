@@ -10,10 +10,7 @@ from libc.math cimport sqrt
 import numpy as np
 cimport numpy as np
 
-cimport common
-from common cimport uint_t, real_t, SQRT_2, SQRT_3, SQRT_5, SQRT_6
-from common cimport pow_3_2, pow_5_2, pow_7_2
-
+from common cimport uint_t, real_t
 from alpha cimport alpha
 from beta cimport beta
 from gamma cimport gamma
