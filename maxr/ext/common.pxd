@@ -31,4 +31,4 @@ cdef inline real_t pow_7_2(int n):
     return sqrt(n * n * n * n * n * n * n)
 
 # This gets updated automatically by setup.py...
-cdef int NUM_THREADS = 4
+cdef int NUM_THREADS = 8

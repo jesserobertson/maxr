@@ -6,7 +6,7 @@
 			"name": "Project files",
 			"folder_exclude_patterns": [
 				"maxr", "tests", "logs", "build", "docs",
-				"__pycache__", "examples", ".ipynb_checkpoints", "dist", "*.egg-info",
+				"__pycache__", "examples", ".ipynb_checkpoints", "dist", "*.egg*",
 				".pytest_cache", "htmlcov"
 			],
 			"file_exclude_patterns": ["*.sublime-workspace", ".coverage"]
