@@ -11,12 +11,6 @@ from libc.math cimport sqrt
 ctypedef double real_t
 ctypedef unsigned int uint_t
 
-# Define some compile-time constants
-cdef real_t SQRT_2 = 1.4142135623730950488
-cdef real_t SQRT_3 = 1.7320508075688772936
-cdef real_t SQRT_5 = 2.2360679774997896964
-cdef real_t SQRT_6 = 2.4494897427831780982
-
 # Power functions
 cdef inline real_t pow_3_2(int n):
     "Evaulate n ** 3/2"

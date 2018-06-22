@@ -6,11 +6,16 @@
 """
 
 from common cimport pow_3_2, pow_5_2, pow_7_2, uint_t, real_t
-from common cimport SQRT_2, SQRT_3, SQRT_5, SQRT_6
 from alpha cimport alpha
 from beta cimport beta
 
 from libc.math cimport sqrt
+
+# Define some compile-time constants
+cdef real_t SQRT_2 = 1.4142135623730950488
+cdef real_t SQRT_3 = 1.7320508075688772936
+cdef real_t SQRT_5 = 2.2360679774997896964
+cdef real_t SQRT_6 = 2.4494897427831780982
 
 cdef void gamma(real_t *coeffs, uint_t n):
     "Third-order integration coefficients for history term"

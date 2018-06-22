@@ -5,10 +5,14 @@
     description: Cython implementation of second-order history integral terms
 """
 
-from common cimport pow_3_2, pow_5_2, uint_t, real_t, SQRT_2, SQRT_3
+from common cimport pow_3_2, pow_5_2, uint_t, real_t
 from alpha cimport alpha
 
 from libc.math cimport sqrt
+
+# Define some compile-time constants
+cdef real_t SQRT_2 = 1.4142135623730950488
+cdef real_t SQRT_3 = 1.7320508075688772936
 
 cdef void beta(real_t *coeffs, uint_t n):
     "Second-order integration coefficients for history term"
