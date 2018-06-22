@@ -6,12 +6,50 @@
     description: Setuptools installer script for maxr.
 """
 
+# If we're running on Mac, we need to enable the Homebrew LLVM to
+# get OpenMP support
+import sys
+import os
+import subprocess
+import textwrap
+import platform
+import pkg_resources
+
+# Check if we're running on Mac and modify the compiler flags if so
+if platform.system() == 'Darwin':
+    try:
+        print('Looking for Homebrew LLVM...')
+        subprocess.run("brew ls --versions llvm > /dev/null", shell=True, check=True)
+        print(textwrap.dedent("""
+            Detected MacOS platform - I'm modifying the compiler flags to
+            point to a homebrew LLVM build so that OpenMP support is
+            enabled.
+            """))
+        os.environ.update(
+            CC="/usr/local/opt/llvm/bin/clang",
+            CFLAGS="-I/usr/local/opt/llvm/include",
+            CPP="/usr/local/opt/llvm/bin/clang",
+            CPPFLAGS="-I/usr/local/opt/llvm/include",
+            LDFLAGS="-L/usr/local/opt/llvm/lib"
+        )
+
+    except subprocess.CalledProcessError:
+        # LLVM or brew is not installed - fail the build and output a message
+        raise pkg_resources.ResolutionError(textwrap.dedent("""
+            Detected MacOS platform - Apple's suppiled LLVM build is quite out
+            of date and doesn't support OpenMP directives. Our workaround is to
+            install a seperate version of the LLVM compiler toolchain using
+            homebrew.
+
+            If you have homebrew installed then `brew install llvm` will fix
+            this.
+
+            If you need homebrew, check out: https://brew.sh/
+            """))
+
 # Check that our version of setuptools is new enough
 # Resolving Cython and numpy dependencies via 'setup_requires' requires setuptools >= 18.0:
 # https://github.com/pypa/setuptools/commit/a811c089a4362c0dc6c4a84b708953dde9ebdbf8
-import sys
-import textwrap
-import pkg_resources
 try:
     pkg_resources.require('setuptools >= 18.0')
 except pkg_resources.ResolutionError:
@@ -23,7 +61,7 @@ except pkg_resources.ResolutionError:
         You can upgrade setuptools:
         $ pip install -U setuptools
         """ % pkg_resources.get_distribution("setuptools").version),
-        file=sys.stderr)
+          file=sys.stderr)
     sys.exit(1)
 
 # Now we can do all our imports
