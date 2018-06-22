@@ -6,7 +6,7 @@
 			"name": "Project files",
 			"folder_exclude_patterns": [
 				"maxr", "tests", "logs", "build", "docs",
-				"__pycache__", "examples", ".ipynb_checkpoints", "dist", "*.egg*",
+				"__pycache__", "examples", ".ipynb_checkpoints", "dist", "*.egg*", "jupyter",
 				".pytest_cache", "htmlcov"
 			],
 			"file_exclude_patterns": ["*.sublime-workspace", ".coverage"]
@@ -20,6 +20,12 @@
 		{
 			"path": "tests",
 			"name": "Tests",
+			"folder_exclude_patterns": [".ipynb_checkpoints", "__pycache__"],
+			"file_exclude_patterns": []
+		},
+		{
+			"path": "jupyter",
+			"name": "Notebooks",
 			"folder_exclude_patterns": [".ipynb_checkpoints", "__pycache__"],
 			"file_exclude_patterns": []
 		},
