@@ -15,7 +15,7 @@
 			"path": "maxr",
 			"name": "Source",
 			"folder_exclude_patterns": ["__pycache__"],
-			"file_exclude_patterns": ["*.pyc", "*.c"]
+			"file_exclude_patterns": ["*.pyc"]
 		},
 		{
 			"path": "tests",
@@ -50,12 +50,12 @@
 	[
 		{
 			"name": "Development build",
-			"cmd": ["bash", "setup_mac.sh", "develop"],
+			"cmd": ["python", "setup.py", "develop"],
 			"working_dir": "$project_path"
 		},
 		{
 			"name": "Run test suite",
-			"cmd": ["bash", "setup_mac.sh", "test"],
+			"cmd": ["python", "setup.py", "test"],
 			"working_dir": "$project_path`"
 		}
 	]

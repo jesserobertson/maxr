@@ -11,8 +11,8 @@ from alpha cimport alpha
 from libc.math cimport sqrt
 
 # Define some compile-time constants
-cdef real_t SQRT_2 = 1.4142135623730950488
-cdef real_t SQRT_3 = 1.7320508075688772936
+DEF SQRT_2 = 1.4142135623730950488
+DEF SQRT_3 = 1.7320508075688772936
 
 cdef void beta(real_t *coeffs, uint_t n):
     "Second-order integration coefficients for history term"
@@ -20,9 +20,9 @@ cdef void beta(real_t *coeffs, uint_t n):
 
     if n > 3:
         # Left boundary
-        coeffs[0] = 4 / 5. * SQRT_2
-        coeffs[1] = 14 / 5. * SQRT_3 - 12 / 5. * SQRT_2
-        coeffs[2] = 176 / 15. - 42 / 5. * SQRT_3 + 12 / 5. * SQRT_2
+        coeffs[0] = 4 / 5 * SQRT_2
+        coeffs[1] = 14 / 5 * SQRT_3 - 12 / 5 * SQRT_2
+        coeffs[2] = 176 / 15 - 42 / 5 * SQRT_3 + 12 / 5 * SQRT_2
 
         # Middle
         for i in range(3, n-1):
